@@ -1,0 +1,8 @@
+area[name="United States"][admin_level=2]->.c;
+(
+  rel
+  	[operator~"National Park Service"]
+  	[name~"National Park$"]
+  (area.c);
+);
+(._;>;);
