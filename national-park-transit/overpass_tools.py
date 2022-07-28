@@ -12,7 +12,8 @@ def run_overpass_query(
     query: str,
     retries: int = 3,
     op: overpass.API = None,
-    cache_path: str = None
+    cache_path: str = None,
+    verbosity: str = "body"
 ) -> gpd.GeoDataFrame:
     """Safer wrapper for the overpass api, plus cacher"""
     if op is None:
@@ -21,7 +22,7 @@ def run_overpass_query(
         return gpd.read_file(cache_path)
     while retries:
         try:
-            xml = op.get(query, responseformat="xml")
+            xml = op.get(query, responseformat="xml", verbosity=verbosity)
             print(f"Succesfully executed query..")
             break
         except Exception as e:
