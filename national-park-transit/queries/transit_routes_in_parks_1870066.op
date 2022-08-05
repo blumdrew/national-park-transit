@@ -1,0 +1,20 @@
+/* original query doesn't work for ferries in Lakes, cool */
+rel(1870066);
+map_to_area->.park;
+(
+  way
+  	[public_transport~"^(platform|station|stop(_area|position)?)$"]
+  (area.park);
+  node
+  	[public_transport~"^(platform|station|stop(_area|position)?)$"]
+  (area.park);
+  rel
+  	[public_transport~"^(platform|station|stop(_area|position)?)$"]
+  (area.park);
+)->.stops_in_park;
+.stops_in_park<<->.data;
+(
+  way.data[name!~"Lake Superior"];
+  node.data[name!~"Lake Superior"];
+);
+(._;>;);

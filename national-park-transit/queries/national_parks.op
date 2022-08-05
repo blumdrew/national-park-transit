@@ -1,8 +1,8 @@
 area[name="United States"][admin_level=2]->.c;
 (
   rel
-  	[operator~"National Park Service"]
-  	[name~"National Park$"]
+  	[operator~"National Park(s)? Service"]
+  	[boundary~"^(protected_area|national_park)$"]
   (area.c);
 );
 (._;>;);
