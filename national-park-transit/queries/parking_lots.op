@@ -1,0 +1,7 @@
+rel({0});
+map_to_area->.park;
+(
+    way[amenity=parking](area.park);
+    rel[amenity=parking](area.park);
+);
+(._;>;);

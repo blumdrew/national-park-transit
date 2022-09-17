@@ -1,0 +1,18 @@
+rel({0});
+map_to_area->.park;
+(
+    way
+        [public_transport~"^(platform|station|stop(_area|position)?)$"]
+        (if:!is_tag("ferry"))
+    (area.park);
+    node
+        [public_transport~"^(platform|station|stop(_area|position)?)$"]
+        (if:!is_tag("ferry"))
+    (area.park);
+    rel
+        [public_transport~"^(platform|station|stop(_area|position)?)$"]
+        (if:!is_tag("ferry"))
+    (area.park);
+  )->.stops_in_park;
+.stops_in_park<<;
+(._;>;);
